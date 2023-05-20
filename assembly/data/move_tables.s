@@ -455,7 +455,7 @@ gRaidBattleBannedRaidMonMoves:
 .hword MOVE_STEELBEAM
 .hword MOVE_PAINSPLIT
 .hword MOVE_ENDEAVOR
-.hword MOVE_FOCUSPUNCH @Must be executed as Max Moves b/c intros don't play
+.hword MOVE_FOCUSPUNCH @Must be executed as Max Moves b/c intros dont play
 .hword MOVE_SHELLTRAP
 .hword MOVE_BEAKBLAST
 .hword MOVE_PROTECT
@@ -663,6 +663,11 @@ gRecklessBoostedMoves:
 .hword MOVE_VOLTTACKLE
 .hword MOVE_WOODHAMMER
 .hword MOVE_WILDCHARGE
+.hword MOVE_WATERSPOUT
+.hword MOVE_ERUPTION
+.hword MOVE_DRACOMETEOR
+.hword MOVE_OUTRAGE
+.hword MOVE_GUNKSHOT
 .hword MOVE_TABLES_TERMIN
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -909,6 +914,7 @@ gHighCriticalChanceMoves:
 .hword MOVE_SPACIALREND
 .hword MOVE_DRILLRUN
 .hword MOVE_SNIPESHOT
+.hword MOVE_FURYSWIPES
 .hword MOVE_TABLES_TERMIN
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -1084,10 +1090,17 @@ gPercent33RecoilMoves:
 .hword MOVE_FLAREBLITZ
 .hword MOVE_BRAVEBIRD
 .hword MOVE_WOODHAMMER
+.hword MOVE_WATERSPOUT
+.hword MOVE_ERUPTION
+.hword MOVE_DRACOMETEOR
+.hword MOVE_OUTRAGE
+.hword MOVE_GUNKSHOT
+.hword MOVE_HEADSMASH
+.hword MOVE_LEAFSTORM
+.hword MOVE_OVERHEAT
 .hword MOVE_TABLES_TERMIN
 
 gPercent50RecoilMoves:
-.hword MOVE_HEADSMASH
 .hword MOVE_LIGHTOFRUIN
 .hword MOVE_TABLES_TERMIN
 

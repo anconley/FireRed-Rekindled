@@ -2586,11 +2586,14 @@ void atk8D_setmultihitcounter(void) {
 	else
 	#endif
 	{
+		gMultiHitCounter = 3; //EDIT BY FOOTTOTHEFACE
+		/*
 		gMultiHitCounter = Random() & 3;
 		if (gMultiHitCounter > 1)
 			gMultiHitCounter = (Random() & 3) + 2;
 		else
 			gMultiHitCounter += 2;
+			*/
 	}
 
 	gBattlescriptCurrInstr += 2;
@@ -4159,12 +4162,12 @@ void atkBE_rapidspinfree(void)
 			gNewBS->AuroraVeilTimers[sideDef] = 0;
 			TEXT_BUFFER_SIDE_STATUS(MOVE_AURORAVEIL, 0, sideDef);
 		}
-		else if (gTerrainType != 0 //Since Gen 8
+		/*else if (gTerrainType != 0 //Since Gen 8 (EDIT BY FOOTTOTHEFACE)
 		&& !(gBattleTypeFlags & BATTLE_TYPE_BATTLE_CIRCUS && gBattleCircusFlags & BATTLE_CIRCUS_TERRAIN)) //Terrain is permanent
 		{
 			BattleScriptPushCursor();
 			gBattlescriptCurrInstr = BattleScript_SetTerrain; //Removes the Terrain
-		}
+		}*/
 		else
 		{
 			gNewBS->fogBlownAwayByDefog = TRUE; //No reactivating fog

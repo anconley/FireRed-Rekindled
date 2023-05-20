@@ -1542,8 +1542,8 @@ bool8 BadIdeaToPutToSleep(u8 bankDef, u8 bankAtk)
 
 	return !CanBePutToSleep(bankDef, TRUE)
 		|| gStatuses3[bankDef] & STATUS3_YAWN
-		|| defItemEffect == ITEM_EFFECT_CURE_SLP
-		|| defItemEffect == ITEM_EFFECT_CURE_STATUS
+		//|| defItemEffect == ITEM_EFFECT_CURE_SLP
+		//|| defItemEffect == ITEM_EFFECT_CURE_STATUS
 		|| defAbility == ABILITY_EARLYBIRD
 		|| defAbility == ABILITY_SHEDSKIN
 		|| (defAbility == ABILITY_SYNCHRONIZE && CanBePutToSleep(bankAtk, TRUE))
@@ -1558,8 +1558,8 @@ bool8 BadIdeaToPoison(u8 bankDef, u8 bankAtk)
 	u8 atkAbility = ABILITY(bankAtk);
 
 	return !CanBePoisoned(bankDef, bankAtk, TRUE)
-		||  defItemEffect == ITEM_EFFECT_CURE_PSN
-		||  defItemEffect == ITEM_EFFECT_CURE_STATUS
+		//||  defItemEffect == ITEM_EFFECT_CURE_PSN
+		//||  defItemEffect == ITEM_EFFECT_CURE_STATUS
 		||  defAbility == ABILITY_SHEDSKIN
 		||  defAbility == ABILITY_POISONHEAL
 		||  defAbility == ABILITY_MAGICGUARD
@@ -1597,8 +1597,8 @@ bool8 BadIdeaToParalyze(u8 bankDef, u8 bankAtk)
 	u8 defAbility = ABILITY(bankDef);
 
 	return !CanBeParalyzed(bankDef, TRUE)
-	   ||  defItemEffect == ITEM_EFFECT_CURE_PAR
-	   ||  defItemEffect == ITEM_EFFECT_CURE_STATUS
+	   //||  defItemEffect == ITEM_EFFECT_CURE_PAR
+	   //||  defItemEffect == ITEM_EFFECT_CURE_STATUS
 	   ||  defAbility == ABILITY_SHEDSKIN
 	   ||  defAbility == ABILITY_QUICKFEET
 	   || (defAbility == ABILITY_SYNCHRONIZE && CanBeParalyzed(bankAtk, TRUE) && !GoodIdeaToParalyzeSelf(bankAtk))
@@ -1629,8 +1629,8 @@ bool8 BadIdeaToBurn(u8 bankDef, u8 bankAtk)
 	u8 defAbility = ABILITY(bankDef);
 
 	return !CanBeBurned(bankDef, TRUE)
-		||  defItemEffect == ITEM_EFFECT_CURE_BRN
-		||  defItemEffect == ITEM_EFFECT_CURE_STATUS
+		//||  defItemEffect == ITEM_EFFECT_CURE_BRN
+		//||  defItemEffect == ITEM_EFFECT_CURE_STATUS
 		||  defAbility == ABILITY_SHEDSKIN
 		||  defAbility == ABILITY_MAGICGUARD
 		||  defAbility == ABILITY_QUICKFEET
@@ -1665,8 +1665,8 @@ bool8 BadIdeaToFreeze(u8 bankDef, u8 bankAtk)
 	u8 defItemEffect = ITEM_EFFECT(bankDef);
 
 	return !CanBeFrozen(bankDef, TRUE)
-		|| defItemEffect != ITEM_EFFECT_CURE_FRZ
-		|| defItemEffect != ITEM_EFFECT_CURE_STATUS
+		//|| defItemEffect != ITEM_EFFECT_CURE_FRZ
+		//|| defItemEffect != ITEM_EFFECT_CURE_STATUS
 		|| (defAbility == ABILITY_SYNCHRONIZE && CanBeFrozen(bankAtk, TRUE))
 		|| (defAbility == ABILITY_NATURALCURE && CAN_SWITCH_OUT(bankDef)) //Don't waste a one-time freeze
 		|| UnfreezingMoveInMoveset(bankDef);

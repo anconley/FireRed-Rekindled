@@ -2825,7 +2825,6 @@ static u16 GetBasePower(struct DamageCalc* data)
 			break;
 
 		case MOVE_LOWKICK:
-		case MOVE_GRASSKNOT:
 			if (!(data->specialFlags & FLAG_IGNORE_TARGET))
 			{
 				u32 weight = GetActualSpeciesWeight(data->defSpecies, data->defAbility, data->defItemEffect, bankDef, !useMonDef) / 10;
@@ -2885,10 +2884,10 @@ static u16 GetBasePower(struct DamageCalc* data)
 			power = GetFlingPower(data->atkItem, data->atkSpecies, data->atkAbility, bankAtk, useMonAtk);
 			break;
 
-		case MOVE_ERUPTION:
+		/*case MOVE_ERUPTION:
 		case MOVE_WATERSPOUT:
 			power = MathMax(1, (150 * data->atkHP) / data->atkMaxHP);
-			break;
+			break;*/ //FootToTheFace
 
 		case MOVE_REVERSAL:
 		case MOVE_FLAIL: ;
@@ -3007,6 +3006,7 @@ static u16 GetBasePower(struct DamageCalc* data)
 				power *= gBattleScripting.dmgMultiplier;
 			break;
 
+		/*
 		case MOVE_RETURN:
 			if ((gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_TRAINER_TOWER | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_EREADER_TRAINER))
 			|| IsFrontierRaidBattle())
@@ -3026,6 +3026,7 @@ static u16 GetBasePower(struct DamageCalc* data)
 			else
 				power = (10 * (255 - gBattleMons[bankAtk].friendship)) / 25;
 			break;
+		*/
 
 		case MOVE_BEATUP:
 			if (useMonAtk || (data->specialFlags & (FLAG_CHECKING_FROM_MENU | FLAG_AI_CALC)))

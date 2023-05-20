@@ -738,7 +738,7 @@ Mirror Coat
 Psych Up
 
 #org @NAME_EXTREMESPEED
-Extremespeed
+ExtremeSpeed
 
 #org @NAME_ANCIENTPOWER
 AncientPower
@@ -1878,16 +1878,16 @@ Trop Kick
 Zing Zap
 
 #org @NAME_ELEC_TERRAIN
-Elec Terrain
+Volt Surge
 
 #org @NAME_GRAS_TERRAIN
-Gras Terrain
+Grassy Surge
 
 #org @NAME_MIST_TERRAIN
-Mist Terrain
+Misty Surge
 
 #org @NAME_PSYC_TERRAIN
-Psyc Terrain
+Psycho Surge
 
 #org @NAME_GRASS_PLEDGE
 Grass Pledge
@@ -1983,7 +1983,7 @@ TrickoTreat
 Venom Drench
 
 #org @NAME_WOODS_CURSE
-Woods Curse
+Forest Curse
 
 #org @NAME_MIND_BLOWN
 Mind Blown
@@ -2103,7 +2103,7 @@ Giant Bash
 Aura Wheel
 
 #org @NAME_BREAKING_SWIPE
-Break Swipe
+Dragon Swipe
 
 #org @NAME_BRANCH_POKE
 Branch Poke
@@ -2163,13 +2163,13 @@ MistyExplode
 Grassy Glide
 
 #org @NAME_RISING_VOLTAGE
-Rising Volt
+Rising Volts
 
 #org @NAME_TERRAIN_PULSE
-TerrainPulse
+Terrain Beam
 
 #org @NAME_SKITTER_SMACK
-SkitterSmack
+Skitter Slap
 
 #org @NAME_BURNING_JEALOUSY
 Jealous Burn
@@ -2196,7 +2196,7 @@ Triple Axel
 DualWingbeat
 
 #org @NAME_SCORCHING_SANDS
-Scorch Sands
+Sand Scorch
 
 #org @NAME_JUNGLE_HEALING
 Jungle Heal

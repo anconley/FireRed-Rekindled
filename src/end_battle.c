@@ -437,10 +437,10 @@ bool8 TryRunFromBattle(u8 bank)
 	{
 		++effect; //So you can always run at the end of a Raid
 	}
-	else if (IsOfType(bank, TYPE_GHOST))
-	{
-		++effect;
-	}
+	//else if (IsOfType(bank, TYPE_GHOST)) (Edit by FootToTheFace)
+	//{
+	//	++effect;
+	//}
 	else if (itemEffect == ITEM_EFFECT_CAN_ALWAYS_RUN)
 	{
 		gLastUsedItem = ITEM(bank);
@@ -466,7 +466,7 @@ bool8 TryRunFromBattle(u8 bank)
 	}
 	else
 	{
-		if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
+		if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)) // EDIT THIS
 		{
 		SINGLE_FLEE_CALC:
 			if (gBattleMons[bank].speed < gBattleMons[BATTLE_OPPOSITE(bank)].speed)
@@ -572,11 +572,21 @@ static void RestoreNonConsumableItems(void)
 	u16 none = ITEM_NONE;
 	u16* items = gNewBS->itemBackup;
 	#ifdef FLAG_KEEP_CONSUMABLE_ITEMS
-	bool8 keepConsumables = FlagGet(FLAG_KEEP_CONSUMABLE_ITEMS);
+	bool8 keepConsumables = TRUE; //FlagGet(FLAG_KEEP_CONSUMABLE_ITEMS);
 	#else
 	bool8 keepConsumables = FALSE;
 	#endif
 
+	for (int i = 0; i < PARTY_SIZE; ++i) 
+	{
+		if (items[i] != gPlayerParty[i].item)
+		{
+			SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &items[i]);
+		}
+	}
+
+	// FootToTheFace: Could break everything idk lol
+	/*
 	if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
 	{
 		for (int i = 0; i < PARTY_SIZE; ++i)
@@ -595,6 +605,7 @@ static void RestoreNonConsumableItems(void)
 			}
 		}
 	}
+	*/
 }
 
 static void RevertDynamax(void)
