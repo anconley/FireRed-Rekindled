@@ -39,7 +39,7 @@ tables:
 
 extern const u8 gMoveNames[][MOVE_NAME_LENGTH + 1];
 extern const u8 gTypeNames[][TYPE_NAME_LENGTH + 1];
-extern const u8 gDynamaxMovePowers[MOVES_COUNT];
+//extern const u8 gDynamaxMovePowers[MOVES_COUNT];
 extern const u8 sTargetIdentities[];
 extern const u16 gUserInterfaceGfx_TypeHighlightingPal[];
 extern const u8 gMoveEffectsThatIgnoreWeaknessResistance[];
@@ -1226,7 +1226,10 @@ static void MoveSelectionDisplayDetails(void)
 				power = moveInfo->movePowers[gMoveSelectionCursor[gActiveBattler]];
 		#else
 			if (moveInfo->dynamaxed)
+				#ifdef DYNAMAX_FEATURE
 				power = gDynamaxMovePowers[moveInfo->moves[gMoveSelectionCursor[gActiveBattler]]];
+				#endif
+				power = 0;
 			else
 				power = gBattleMoves[moveInfo->moves[gMoveSelectionCursor[gActiveBattler]]].power;
 		#endif

@@ -118,8 +118,8 @@ enum //These vars need to be one after the other (hence the enum)
 #define NUM_MOVE_TUTORS 128 //keep this defined even if EXPANDED_MOVE_TUTORS is not!! If using DPE, set to 128.
 #define LAST_TOTAL_TUTOR_NUM 136 //Should be equal to (NUM_MOVE_TUTORS - 1) + 9. Must be set to an actual integer or the compilation will not work.
 //#define TMS_BEFORE_HMS  //Uncomment this if you want the HMs to appear after the TMs in your bag
-//#define DELETABLE_HMS //Uncomment this if you want HMs to be deletable without the Move Deleter
-//#define REUSABLE_TMS	//if defined, don't forget to give all TMs a Mystery byte of 1!
+#define DELETABLE_HMS //Uncomment this if you want HMs to be deletable without the Move Deleter
+#define REUSABLE_TMS	//if defined, don't forget to give all TMs a Mystery byte of 1!
 
 /*===== Time of Day Options =====*/
 #define TIME_MORNING_START 4		//4:00 AM / 4:00
@@ -129,7 +129,7 @@ enum //These vars need to be one after the other (hence the enum)
 
 /*===== General Number Options =====*/
 #define KANTO_DEX_COUNT 151
-#define NATIONAL_DEX_COUNT 704
+#define NATIONAL_DEX_COUNT 712
 
 #define MAX_LEVEL 100 //Also change this in the file "asm_defines.asm" found in the root
 #define NUM_TRAINER_CLASSES 107 //Vanilla FR has 107
@@ -248,7 +248,7 @@ enum //These vars need to be one after the other (hence the enum)
 //#define SCROLLING_MULTICHOICE //Enables scrolling multichoice menus by using special 0x158.
 //#define REPLACE_SOME_VANILLA_SPECIALS //Replaces the sp07C, sp07D, sp09E, sp156, sp18B, & the Coins scripting commands with modified versions. Breaks vanilla FR compatability.
 #define REPLACE_ASH_WEATHER_WITH_WHITE_SANDSTORM //Replaces the falling ash weather effect with a white version of the sandstorm weather effect
-#define ONLY_CHECK_ITEM_FOR_HM_USAGE //Allows HMs to be used if the HM is the Bag, and as long as there is a Pokemon in the party that can learn the HM
+//#define ONLY_CHECK_ITEM_FOR_HM_USAGE //Allows HMs to be used if the HM is the Bag, and as long as there is a Pokemon in the party that can learn the HM
 #define FADE_NPCS_IN_FOG //Blends the NPC palettes in foggy weather to create the illusion that they're under the fog. Breaks FR Pokemon Tower healing zone
 
 /*===== Misc Battle Effect Options =====*/

@@ -28,7 +28,7 @@ damage_calc.c
 extern const struct NaturalGiftStruct gNaturalGiftTable[];
 extern const struct FlingStruct gFlingTable[];
 extern struct AlternateSize gAlternateSpeciesSizeTable[];
-extern const u8 gDynamaxMovePowers[];
+//extern const u8 gDynamaxMovePowers[];
 
 static const u16 sCriticalHitChances[] =
 #ifdef CRIT_CHANCE_GEN_6
