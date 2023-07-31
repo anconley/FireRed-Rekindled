@@ -7800,7 +7800,6 @@ static const struct LevelUpMove sChimechoLevelUpLearnset[] = {
 	LEVEL_UP_END,
 };
 
-/*
 static const struct LevelUpMove sTurtwigLevelUpLearnset[] = {
 	LEVEL_UP_MOVE( 1, MOVE_TACKLE),
 	LEVEL_UP_MOVE( 5, MOVE_WITHDRAW),
@@ -18939,8 +18938,7 @@ static const struct LevelUpMove sStunfiskGLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(50, MOVE_FLAIL),
 	LEVEL_UP_MOVE(55, MOVE_FISSURE),
 	LEVEL_UP_END
-};		
-*/
+};
 
 const struct LevelUpMove* const gLevelUpLearnsets[] =
 {
@@ -19357,7 +19355,6 @@ const struct LevelUpMove* const gLevelUpLearnsets[] =
 	[SPECIES_DEOXYS] = sDeoxysLevelUpLearnset,
 	[SPECIES_CHIMECHO] = sChimechoLevelUpLearnset,
 	[SPECIES_EGG] = sEmptyMoveset,
-/*
 	[SPECIES_UNOWN_B] = sUnownLevelUpLearnset,
 	[SPECIES_UNOWN_C] = sUnownLevelUpLearnset,
 	[SPECIES_UNOWN_D] = sUnownLevelUpLearnset,
@@ -19681,7 +19678,7 @@ const struct LevelUpMove* const gLevelUpLearnsets[] =
 	[SPECIES_ARCEUS_ICE] = sArceusLevelUpLearnset,
 	[SPECIES_ARCEUS_DRAGON] = sArceusLevelUpLearnset,
 	[SPECIES_ARCEUS_DARK] = sArceusLevelUpLearnset,
-	[SPECIES_BASCULIN_BLUE] = sBasculinLevelUpLearnset,
+	[SPECIES_BASCULIN_BLUE] = sBasculinRedLevelUpLearnset,
 	[SPECIES_DARMANITANZEN] = sDarmanitanLevelUpLearnset,
 	[SPECIES_DEERLING_SUMMER] = sDeerlingLevelUpLearnset,
 	[SPECIES_DEERLING_AUTUMN] = sDeerlingLevelUpLearnset,
@@ -20209,8 +20206,6 @@ const struct LevelUpMove* const gLevelUpLearnsets[] =
 	[SPECIES_DURALUDON_GIGA] = sDuraludonLevelUpLearnset,
 	[SPECIES_URSHIFU_SINGLE_GIGA] = sUrshifuLevelUpLearnset,
 	[SPECIES_URSHIFU_RAPID_GIGA] = sUrshifuRapidLevelUpLearnset,
-};
-*/
 };
 
 #endif

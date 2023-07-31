@@ -5054,7 +5054,7 @@ const struct BattleMove gBattleMoves[] =
 	{
 		.effect = EFFECT_HEAL_BELL,
 		.power = 0,
-		.type = TYPE_GRASS
+		.type = TYPE_GRASS,
 		.accuracy = 0,
 		.pp = 8, // FootToTheFace
 		.secondaryEffectChance = 0,
