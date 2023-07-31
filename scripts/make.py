@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 import os
 import shutil
@@ -74,20 +74,20 @@ def EditInsert(offset: int):
 
 
 def BuildCode():
-    if shutil.which('python3') is not None:
-        result = os.system("python3 scripts/build.py")
-    else:
+    if shutil.which('python') is not None:
         result = os.system("python scripts/build.py")
+    else:
+        result = os.system("python3 scripts/build.py")
 
     if result != 0:  # Build wasn't sucessful
         sys.exit(1)
 
 
 def InsertCode():
-    if shutil.which('python3') is not None:
-        os.system("python3 scripts/insert.py")
-    else:
+    if shutil.which('python') is not None:
         os.system("python scripts/insert.py")
+    else:
+        os.system("python3 scripts/insert.py")
 
 
 def ClearFromTo(rom, from_: int, to_: int):
