@@ -219,3 +219,12 @@ Purchased
 
 #org @gText_StopZooming
 Stop zooming!
+
+#org @gText_PCInDungeon
+The Portable PC cannot be\nused during a dungeon!
+
+#org @gText_OpenPortablePC
+Launching Portable PC...
+
+#org @gText_ClosePortablePC
+Closing Portable PC...

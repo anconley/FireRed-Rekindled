@@ -207,6 +207,30 @@ SystemScript_DisplayDexnavMsg:
 
 @;@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+.global EventScript_PCMainMenu
+EventScript_PCMainMenu:
+	lockall
+	sound 0x4
+	special 0x3C
+	waitstate
+	sound 0x3
+	msgboxsign
+	msgbox gText_ClosePortablePC MSG_SIGN
+	closeonkeypress
+	releaseall
+	end
+
+.global EventScript_PCMainMenuDungeon
+EventScript_PCMainMenuDungeon:
+	lockall
+	msgboxsign
+	msgbox gText_PCInDungeon MSG_SIGN
+	closeonkeypress
+	releaseall
+	end
+
+@;@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 .global SystemScript_WaitForFollower
 SystemScript_WaitForFollower:
 	lock

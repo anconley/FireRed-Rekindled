@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "move_menu.h": "c"
+        "move_menu.h": "c",
+        "battle_strings.h": "c",
+        "wild_encounter.h": "c"
     }
 }

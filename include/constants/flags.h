@@ -42,7 +42,6 @@
 #define FLAG_0x027               0x027
 
 // Hide/show flags
-/*
 #define FLAG_HIDE_BULBASAUR_BALL                           0x028
 #define FLAG_HIDE_SQUIRTLE_BALL                            0x029
 #define FLAG_HIDE_CHARMANDER_BALL                          0x02A
@@ -569,10 +568,9 @@
 #define FLAG_0x22D               0x22D
 #define FLAG_0x22E               0x22E
 #define FLAG_0x22F               0x22F
-*/
+
 
 // Story flags
-/*
 #define STORY_FLAGS_START 0x230
 #define FLAG_GOT_POTION_ON_ROUTE_1                       0x230
 #define FLAG_GOT_TM34_FROM_SURGE                         0x231
@@ -628,9 +626,9 @@
 #define FLAG_GOT_EEVEE                                   0x263
 #define FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES           0x264
 #define FLAG_CINNABAR_GYM_QUIZ_1                         0x265
-*/
+
 #define FLAG_PENDING_DAYCARE_EGG                         0x266
-/*
+
 #define FLAG_CINNABAR_GYM_QUIZ_2                         0x267
 #define FLAG_CINNABAR_GYM_QUIZ_3                         0x268
 #define FLAG_CINNABAR_GYM_QUIZ_4                         0x269
@@ -783,13 +781,12 @@
 #define FLAG_GOT_FULL_RESTORE_FROM_THREE_ISLAND_DEFENDER 0x2FC
 #define FLAG_GOT_AMULET_COIN_FROM_OAKS_AIDE              0x2FD
 #define FLAG_NO_ROOM_FOR_JOYFUL_GAME_CORNER_MOON_STONE   0x2FE
-*/
+
 #define FLAG_OAKS_RATING_IS_VIA_PC                       0x2FF
 
 // Unused?
-/*
-#define FLAG_0x300               0x300
-#define FLAG_0x301               0x301
+#define FLAG_PCMENU              0x300
+#define FLAG_IN_DUNGEON          0x301
 #define FLAG_0x302               0x302
 #define FLAG_0x303               0x303
 #define FLAG_0x304               0x304
@@ -1020,12 +1017,10 @@
 #define FLAG_0x3E5               0x3E5
 #define FLAG_0x3E6               0x3E6
 #define FLAG_0x3E7               0x3E7
-*/
 
 #define FLAG_HIDDEN_ITEMS_START 1000 // 0x3E8
 #define FLAG_HIDDEN_ITEM(map, item) (FLAG_HIDDEN_ITEMS_START + HIDDEN_ITEM_##map##_##item)
 
-/*
 #define HIDDEN_ITEM_VIRIDIAN_FOREST_POTION                              0
 #define HIDDEN_ITEM_VIRIDIAN_FOREST_ANTIDOTE                            1
 #define HIDDEN_ITEM_MT_MOON_B2F_MOON_STONE                              2
@@ -1312,7 +1307,6 @@
 #define FLAG_0x4FD               0x4FD
 #define FLAG_0x4FE               0x4FE
 #define FLAG_0x4FF               0x4FF
-*/
 
 #define FLAG_TRAINER_FLAG_START  0x500
 
@@ -1380,7 +1374,6 @@
 #define FLAG_ENABLE_SHIP_BIRTH_ISLAND (SYS_FLAGS + 0x4B)
 
 // World Map Flags
-/*
 #define FLAG_WORLD_MAP_PALLET_TOWN                                  (SYS_FLAGS + 0x90)
 #define FLAG_WORLD_MAP_VIRIDIAN_CITY                                (SYS_FLAGS + 0x91)
 #define FLAG_WORLD_MAP_PEWTER_CITY                                  (SYS_FLAGS + 0x92)
@@ -1432,7 +1425,6 @@
 #define FLAG_WORLD_MAP_THREE_ISLAND_DUNSPARCE_TUNNEL                (SYS_FLAGS + 0xC0)
 #define FLAG_WORLD_MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY       (SYS_FLAGS + 0xC1)
 #define FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR                        (SYS_FLAGS + 0xC2)
-*/
 
 #define FLAG_0x8D5 (SYS_FLAGS + 0xD5)
 #define FLAG_0x8D6 (SYS_FLAGS + 0xD6)

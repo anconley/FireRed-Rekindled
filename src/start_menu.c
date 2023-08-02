@@ -33,6 +33,7 @@ enum
 	STARTMENU_QUEST_LOG,
 	STARTMENU_EXIT_RIGHT,
 	STARTMENU_EXIT_LEFT,
+	STARTMENU_PORTABLE_PC,
 	MAX_STARTMENU_ITEMS
 };
 
@@ -55,6 +56,7 @@ extern const u8 gText_DexNav[];
 extern const u8 gText_MissionLog[];
 extern const u8 gText_MenuBag[];
 extern const u8 gText_MenuCube[];
+extern const u8 gText_MenuPortablePc[];
 #ifdef UNBOUND
 #define gText_MenuBag gText_MenuCube
 #endif
@@ -69,6 +71,7 @@ extern const u8 gText_ExitDescription[];
 extern const u8 gText_RetireDescription[];
 extern const u8 gText_PlayerDescription[];
 extern const u8 gText_DexNavDescription[];
+extern const u8 gText_PortablePcDescription[];
 
 extern bool8 (*sStartMenuCallback)(void);
 extern u8 sStartMenuCursorPos;
@@ -128,6 +131,7 @@ const struct MenuAction sStartMenuActionTable[] =
 	#endif
 	[STARTMENU_EXIT_RIGHT] = {gText_MenuExitRight, {.u8_void = StartMenuExitCallback}},
 	[STARTMENU_EXIT_LEFT] = {gText_MenuExitLeft, {.u8_void = StartMenuExitCallback}},
+	[STARTMENU_PORTABLE_PC] = {gText_MenuPortablePc, {.u8_void = StartMenuPCCallback}},
 };
 
 const u8* const sStartMenuDescPointers[] =
@@ -145,6 +149,7 @@ const u8* const sStartMenuDescPointers[] =
 	NULL,
 	gText_ExitDescription,
 	gText_ExitDescription,
+	gText_PortablePcDescription
 };
 
 static bool8 CanSetUpSecondaryStartMenu(void)
@@ -174,6 +179,9 @@ static void SetUpStartMenu_NormalField(void)
 		if (!FlagGet(FLAG_SYS_BAG_HIDE))
 	#endif
 			AppendToStartMenuItems(STARTMENU_BAG);
+	
+	// TODO: add a check for dungeons
+	AppendToStartMenuItems(STARTMENU_PORTABLE_PC);
 
 	#ifdef FLAG_SYS_PLAYER_HIDE
 		if (!FlagGet(FLAG_SYS_PLAYER_HIDE))
@@ -309,7 +317,9 @@ bool8 StartCB_HandleInput(void)
 		if (!StartMenuPokedexSanityCheck())
 			return FALSE;
 		sStartMenuCallback = sStartMenuActionTable[sStartMenuOrder[sStartMenuCursorPos]].func.u8_void;
-		StartMenu_FadeScreenIfLeavingOverworld();
+		if(sStartMenuCallback != StartMenuPCCallback) {
+			StartMenu_FadeScreenIfLeavingOverworld();
+		}
 		return FALSE;
 	}
 	else if (JOY_NEW(B_BUTTON | START_BUTTON))

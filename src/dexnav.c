@@ -2396,3 +2396,23 @@ void sp0E2_IsDexNavCompleteHere(void)
 	else if (waterMonsInfo != NULL && !CapturedAllWaterBasedPokemon())
 		gSpecialVar_LastResult = FALSE;
 }
+
+// ========================================== //
+// ============== Portable PC =============== //
+// ========================================== //
+
+extern u8 EventScript_PCMainMenu[];
+bool8 StartMenuPCCallback(void)
+{
+    if (!gPaletteFade->active)
+    {
+        PlayRainStoppingSoundEffect();
+        DestroySafariZoneStatsWindow();
+		ClearStdWindowAndFrame(GetStartMenuWindowId(), TRUE);
+		RemoveStartMenuWindow();
+		ScriptContext1_SetupScript(EventScript_PCMainMenu);
+        return TRUE;
+    }
+
+    return FALSE;
+} 

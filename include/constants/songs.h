@@ -1,12 +1,20 @@
 #pragma once
 
+// These songs play when certain trainers spot you
 #define BGM_EYE_CREEPY 0x11B
 #define BGM_EYE_GIRL 0x11C
 #define BGM_EYE_BOY 0x11D
 
+
+#define BGM_EYE_INTIMIDATING 0x15F
+
+// Victory themes
 #define BGM_VICTORY_TRAINER_BATTLE 0x136
 #define BGM_VICTORY_SPECIAL 0x138
+#define BGM_VICTORY_WILD_POKE 0x137
+#define BGM_VICTORY_GYM 0x138
 
+// Battle themes
 #define BGM_BATTLE_RSE_GYM_LEADER 0x109
 #define BGM_BATTLE_RSE_TRAINER 0x10A
 #define BGM_CYCLING 0x11A
@@ -19,8 +27,7 @@
 #define BGM_BATTLE_LEGENDARY_BIRDS 0x154
 #define BGM_BATTLE_MEWTWO 0x155
 
-#define BGM_VICTORY_WILD_POKE 0x137
-#define BGM_VICTORY_GYM 0x138
+// Other
 
 #define BGM_RANDOM_BATTLE_MUSIC 0xFEFE
 
