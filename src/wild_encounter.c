@@ -304,7 +304,7 @@ void CreateWildMon(u16 species, u8 level, u8 monHeaderIndex, bool8 purgeParty)
 	}
 
 	#ifdef FLAG_HIDDEN_ABILITY
-	if (FlagGet(FLAG_HIDDEN_ABILITY))
+	if (Random() % 3 == 2) // 33% chance to get a hidden ability, FootToTheFace FlagGet(FLAG_HIDDEN_ABILITY)
 		gEnemyParty[enemyMonIndex].hiddenAbility = TRUE;
 	#endif
 

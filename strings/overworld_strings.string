@@ -228,3 +228,9 @@ Launching Portable PC...
 
 #org @gText_ClosePortablePC
 Closing Portable PC...
+
+#org @gText_PartyHealed
+Your party has been fully\n healed!
+
+#org @gText_PokemonHealed
+Your Pok\emon has been\nfully healed!

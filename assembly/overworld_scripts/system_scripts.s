@@ -229,6 +229,41 @@ EventScript_PCMainMenuDungeon:
 	releaseall
 	end
 
+.global EventScript_HealParty
+EventScript_HealParty:
+	lockall
+	setvar 0x8004 0xF
+	setvar 0x8005 0x3E7
+	setvar 0x8006 0x1
+	special 0x66
+	sound 0x1
+	msgboxsign
+	msgbox gText_PartyHealed MSG_SIGN
+	closeonkeypress
+	releaseall
+	end
+
+.global EventScript_HealPokemon
+EventScript_HealPokemon:
+	lockall
+	special 0x9F
+	waitstate
+	setvar 0x8005 0x3E7
+	setvar 0x8006 0x1
+	special 0x66
+	sound 0x1
+	msgboxsign
+	msgbox gText_PokemonHealed MSG_SIGN
+	closeonkeypress
+	releaseall
+	end
+
+.global EventScript_CandyBag
+EventScript_CandyBag:
+	lockall
+	releaseall
+	end
+
 @;@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 .global SystemScript_WaitForFollower

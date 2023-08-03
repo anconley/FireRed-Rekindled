@@ -223,8 +223,9 @@ static void SetUpStartMenu_SafariZone(void)
 		if (FlagGet(FLAG_SYS_PLAYER_GET))
 	#endif
 			AppendToStartMenuItems(STARTMENU_PLAYER);
-
-	AppendToStartMenuItems(STARTMENU_OPTION);
+	//if (FlagGet(FLAG_PC_ENABLED)) { TODO
+		AppendToStartMenuItems(STARTMENU_OPTION);
+	//}
 
 	if  (sStartMenuOpen == START_MENU_NORMAL && CanSetUpSecondaryStartMenu())
 		AppendToStartMenuItems(STARTMENU_EXIT_RIGHT);
