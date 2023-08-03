@@ -258,9 +258,10 @@ EventScript_HealPokemon:
 	releaseall
 	end
 
-.global EventScript_CandyBag
-EventScript_CandyBag:
+.global ItemScript_CandyBag
+ItemScript_CandyBag:
 	lockall
+	call 0x8126350
 	releaseall
 	end
 

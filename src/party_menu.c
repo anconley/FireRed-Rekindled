@@ -1706,6 +1706,71 @@ static void ItemUseCB_EVReducingBerry(u8 taskId, TaskFunc func)
 	}
 }
 
+extern const u8 ItemScript_CandyBag[];
+extern const u8 gText_CandyBagFailed[];
+static void ProcessLevelUp(u8 monLevel, u8 levelCap) {
+	if(monLevel < levelCap) {
+		//TryIncrementMonLevel(mon);
+		//ExecuteTableBasedItemEffect_(gPartyMenu.slotId, )
+		ScriptContext1_SetupScript(ItemScript_CandyBag);
+		UpdateMonDisplayInfoAfterRareCandy(gPartyMenu.slotId, mon);
+		gTasks[taskId].func = func;
+	}
+	else {
+		DisplayPartyMenuMessage(gText_CandyBagFailed, TRUE);
+		gTasks[taskId].func = func;
+	}
+}
+
+static void ItemUseCB_CandyBag(u8 taskId, TaskFunc func)
+{
+	struct Pokemon* mon = &gPlayerParty[gPartyMenu.slotId];
+	
+	PlaySE(SE_SELECT);
+	if(FlagGet(FLAG_LVL_CAP_99)) {
+		if(mon->level)
+	}
+	else if(FlagGet(FLAG_LVL_CAP_97)) {
+		ProcessLevelUp(mon->level, 97)
+	}
+	// TODO: add more
+	else if(FlagGet(FLAG_LVL_CAP5)) {
+		ProcessLevelUp(mon->level, 5)
+	}
+	else if(FlagGet(FLAG_LVL_CAP_3)) {
+		// can probably get rid of this
+	}
+	else {
+		ProcessLevelUp(mon->level, 3)
+	}
+}
+
+void FieldUseFunc_CandyBag(u8 taskId)
+{
+	gItemUseCB = ItemUseCB_CandyBag;
+
+    if (gTasks[taskId].data[3] == 0) //From Bag
+    {
+		SetUpItemUseCallback(taskId);
+    }
+    else //From Overworld
+    {
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = CandyBag_ShowPartyMenuFromField;
+    }
+}
+
+static void CandyBag_ShowPartyMenuFromField(u8 taskId)
+{
+    if (!gPaletteFade->active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        PrepareOverworldReturn();
+		InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_USE_ITEM, TRUE, PARTY_MSG_USE_ON_WHICH_MON, Task_HandleChooseMonInput, CB2_ReturnToFieldContinueScript);
+        DestroyTask(taskId);
+    }
+}
+
 void FieldUseFunc_FormChangeItem(u8 taskId)
 {
 	gItemUseCB = ItemUseCB_FormChangeItem;
