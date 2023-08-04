@@ -1374,7 +1374,13 @@ static bool8 IsUsePartyMenuItemHPEVModifier(struct Pokemon* mon, u16 oldHP, u16 
 static void AdjustFriendshipForEVReducingBerry(struct Pokemon* mon);
 static void ItemUseCB_EVReducingBerry(u8 taskId, TaskFunc func);
 static void ItemUseCB_FormChangeItem(u8 taskId, TaskFunc func);
+static void ItemUseCB_CandyBag(u8 taskId, TaskFunc func);
+static void ItemUseCB_HealthSpray(u8 taskId, TaskFunc func);
+static void ItemUseCB_PartyPotion(u8 taskId, TaskFunc func);
 static void FormChangeItem_ShowPartyMenuFromField(u8 taskId);
+static void CandyBag_ShowPartyMenuFromField(u8 taskId);
+static void HealthSpray_ShowPartyMenuFromField(u8 taskId);
+static void PartyPotion_ShowPartyMenuFromField(u8 taskId);
 static void ItemUseCB_DNASplicersStep(u8 taskId, TaskFunc func);
 static void Task_TryLearnPostFormeChangeMove(u8 taskId);
 static struct Pokemon* GetBaseMonForFusedSpecies(u16 species);
@@ -1708,11 +1714,11 @@ static void ItemUseCB_EVReducingBerry(u8 taskId, TaskFunc func)
 
 extern const u8 ItemScript_CandyBag[];
 extern const u8 gText_CandyBagFailed[];
-static void ProcessLevelUp(u8 monLevel, u8 levelCap) {
+static void ProcessLevelUp(u8 taskId, TaskFunc func, struct Pokemon* mon, u8 monLevel, u8 levelCap) {
 	if(monLevel < levelCap) {
-		//TryIncrementMonLevel(mon);
+		TryIncrementMonLevel(mon);
 		//ExecuteTableBasedItemEffect_(gPartyMenu.slotId, )
-		ScriptContext1_SetupScript(ItemScript_CandyBag);
+		//ScriptContext1_SetupScript(ItemScript_CandyBag);
 		UpdateMonDisplayInfoAfterRareCandy(gPartyMenu.slotId, mon);
 		gTasks[taskId].func = func;
 	}
@@ -1728,21 +1734,36 @@ static void ItemUseCB_CandyBag(u8 taskId, TaskFunc func)
 	
 	PlaySE(SE_SELECT);
 	if(FlagGet(FLAG_LVL_CAP_99)) {
-		if(mon->level)
+		ProcessLevelUp(taskId, func, mon, mon->level, 99);
 	}
 	else if(FlagGet(FLAG_LVL_CAP_97)) {
-		ProcessLevelUp(mon->level, 97)
-	}
-	// TODO: add more
-	else if(FlagGet(FLAG_LVL_CAP5)) {
-		ProcessLevelUp(mon->level, 5)
+		ProcessLevelUp(taskId, func, mon, mon->level, 97);
+	} // TODO: add more
+	else if(FlagGet(FLAG_LVL_CAP_5)) {
+		ProcessLevelUp(taskId, func, mon, mon->level, 5);
 	}
 	else if(FlagGet(FLAG_LVL_CAP_3)) {
 		// can probably get rid of this
 	}
 	else {
-		ProcessLevelUp(mon->level, 3)
+		ProcessLevelUp(taskId, func, mon, mon->level, 3);
 	}
+}
+
+static void ItemUseCB_HealthSpray(u8 taskId, TaskFunc func)
+{
+	struct Pokemon* mon = &gPlayerParty[gPartyMenu.slotId];
+	
+	PlaySE(SE_SELECT);
+	
+}
+
+static void ItemUseCB_PartyPotion(u8 taskId, TaskFunc func)
+{
+	struct Pokemon* mon = &gPlayerParty[gPartyMenu.slotId];
+	
+	PlaySE(SE_SELECT);
+	
 }
 
 void FieldUseFunc_CandyBag(u8 taskId)
@@ -1760,7 +1781,65 @@ void FieldUseFunc_CandyBag(u8 taskId)
     }
 }
 
+extern const u8 ItemScript_HealPokemon[];
+void FieldUseFunc_HealthSpray(u8 taskId)
+{
+	ScriptContext1_SetupScript(ItemScript_HealPokemon);
+	/*
+	gItemUseCB = ItemUseCB_HealthSpray;
+
+    if (gTasks[taskId].data[3] == 0) //From Bag
+    {
+		SetUpItemUseCallback(taskId);
+    }
+    else //From Overworld
+    {
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = HealthSpray_ShowPartyMenuFromField;
+    }*/
+}
+
+extern const u8 ItemScript_HealParty[];
+void FieldUseFunc_PartyPotion(u8 taskId)
+{
+	ScriptContext1_SetupScript(ItemScript_HealParty);
+	/*
+	gItemUseCB = ItemUseCB_PartyPotion;
+
+    if (gTasks[taskId].data[3] == 0) //From Bag
+    {
+		SetUpItemUseCallback(taskId);
+    }
+    else //From Overworld
+    {
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = PartyPotion_ShowPartyMenuFromField;
+    }*/
+}
+
 static void CandyBag_ShowPartyMenuFromField(u8 taskId)
+{
+    if (!gPaletteFade->active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        PrepareOverworldReturn();
+		InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_USE_ITEM, TRUE, PARTY_MSG_USE_ON_WHICH_MON, Task_HandleChooseMonInput, CB2_ReturnToFieldContinueScript);
+        DestroyTask(taskId);
+    }
+}
+
+static void HealthSpray_ShowPartyMenuFromField(u8 taskId)
+{
+    if (!gPaletteFade->active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        PrepareOverworldReturn();
+		InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_USE_ITEM, TRUE, PARTY_MSG_USE_ON_WHICH_MON, Task_HandleChooseMonInput, CB2_ReturnToFieldContinueScript);
+        DestroyTask(taskId);
+    }
+}
+
+static void PartyPotion_ShowPartyMenuFromField(u8 taskId)
 {
     if (!gPaletteFade->active)
     {

@@ -229,8 +229,8 @@ EventScript_PCMainMenuDungeon:
 	releaseall
 	end
 
-.global EventScript_HealParty
-EventScript_HealParty:
+.global ItemScript_HealParty
+ItemScript_HealParty:
 	lockall
 	setvar 0x8004 0xF
 	setvar 0x8005 0x3E7
@@ -243,8 +243,8 @@ EventScript_HealParty:
 	releaseall
 	end
 
-.global EventScript_HealPokemon
-EventScript_HealPokemon:
+.global ItemScript_HealPokemon
+ItemScript_HealPokemon:
 	lockall
 	special 0x9F
 	waitstate
